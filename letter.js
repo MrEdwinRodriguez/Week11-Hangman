@@ -1,14 +1,36 @@
-phrase = 'hello world';
+// importing from game.js
+var phrase = require('./game.js').chosenWord.chosen;
 
-    for (i = 0; i < phrase.length; i++) {
+var counter = 0;
+var correctGuesses = [];
 
-        if (phrase[i] == ' ') {
+// constructor to put '_' or '-'
+function DashedWord(word) {
+	this.phrase = word;
+	this.prints = function mark(){
 
-            console.log('-');
+    				for (i = 0; i < this.phrase.length; i++) {
+
+        				if (this.phrase[i] == ' ') {
+            				correctGuesses.splice(i, 1, "-")
+
+        				} else {
+        	 				correctGuesses.splice(i, 0, "_")
+            
+        						}
+    						}
+						}
+					}  //end of constuctor
+
+var dashes = new DashedWord(phrase)
+dashes.prints();
 
 
-        } else {
+// double space after join to substract commas but still leave space
+var joinedArr = correctGuesses.join(' ');
+console.log(joinedArr)
 
-            console.log('_');
-        }
-    }
+exports.placeHolders = {
+
+	dashes : dashes.prints()
+}	
