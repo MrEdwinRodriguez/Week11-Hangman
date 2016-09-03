@@ -5,7 +5,7 @@ var phraseArr = ['hello world', 'programming', 'developer', 'knights', 'bootcamp
 var index = Math.floor((Math.random() * phraseArr.length));
 randomPhrase = phraseArr[index]
 			 
-console.log(randomPhrase);
+// console.log(randomPhrase);
 // to export to another js file
 exports.chosenWord = {
   chosen: randomPhrase
